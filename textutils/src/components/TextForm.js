@@ -12,6 +12,19 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText)
     }
+    const handleCapClick = ()=>{
+        let newText = text
+            .split(" ")
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+        setText(newText)
+    }
+    const handleCopyClick = ()=>{
+        navigator.clipboard.writeText(text);
+    }
+    const handleClearClick = ()=>{
+        setText('')
+    }
     const [text, setText] = useState('')
     return (
         <>
@@ -22,13 +35,16 @@ export default function TextForm(props) {
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
+                <button className="btn btn-primary mx-1" onClick={handleCapClick}>Capitalize Text</button>
+                <button className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy Text</button>
+                <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
             </div>
             <div className="container my-3">
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{text.split(" ").length * 0.008} Minutes to read the text</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p style={{whiteSpace: "pre-wrap"}}>{text.length > 0 ? text : "Enter text above to preview"}</p>
             </div>
         </>
     )
