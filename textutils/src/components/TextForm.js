@@ -7,10 +7,12 @@ export default function TextForm(props) {
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to Uppercase", "success")
     }
     const handleLowClick = ()=>{
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to Lowercase", "success")
     }
     const handleCapClick = ()=>{
         let newText = text
@@ -18,9 +20,11 @@ export default function TextForm(props) {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ");
         setText(newText)
+        props.showAlert("Text is Capitalized", "success")
     }
     const handleCopyClick = ()=>{
         navigator.clipboard.writeText(text);
+        props.showAlert("Text is Copied!!!", "success")
     }
     const handleClearClick = ()=>{
         setText('')
@@ -28,6 +32,7 @@ export default function TextForm(props) {
     const handleExtraSpaces = ()=>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showAlert("Removed the unwanted extra spaces from the text", "success")
     }
     const [text, setText] = useState('')
     return (
