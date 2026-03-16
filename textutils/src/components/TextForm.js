@@ -25,6 +25,10 @@ export default function TextForm(props) {
     const handleClearClick = ()=>{
         setText('')
     }
+    const handleExtraSpaces = ()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "))
+    }
     const [text, setText] = useState('')
     return (
         <>
@@ -38,6 +42,7 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mx-1" onClick={handleCapClick}>Capitalize Text</button>
                 <button className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy Text</button>
                 <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+                <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
             <div className="container my-3">
                 <h2>Your Text Summary</h2>
