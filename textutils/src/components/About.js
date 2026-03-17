@@ -3,7 +3,7 @@ import React from 'react'
 export default function About(props) {
     const myStyle = {
         color: props.mode === 'dark' ? 'white' : 'black',
-        backgroundColor: props.mode === 'dark' ? '#042743' : 'white'
+        backgroundColor: props.mode === 'dark' ? '#13466e' : 'white'
     }
 
     const borderStyle = {
@@ -26,7 +26,7 @@ export default function About(props) {
                             aria-controls="collapseOne"
                             style={myStyle}
                         >
-                            Analyze Your Text
+                            <strong>Analyze Your Text</strong>
                         </button>
                     </h2>
                     <div
@@ -53,7 +53,7 @@ export default function About(props) {
                             aria-controls="collapseTwo"
                             style={myStyle}
                         >
-                            Free Text Utilities
+                            <strong>Free Text Utilities</strong>
                         </button>
                     </h2>
                     <div
@@ -80,7 +80,7 @@ export default function About(props) {
                             aria-controls="collapseThree"
                             style={myStyle}
                         >
-                            Browser Compatible and User Friendly
+                            <strong>Browser Compatible and User Friendly</strong>
                         </button>
                     </h2>
                     <div
